@@ -9,13 +9,13 @@ Finally, the results are evaluated using **Canny edge detection** to analyze how
 
 A bilateral filter smooths an image while preserving edges by combining two weights:
 
-- **Spatial weight** — proximity of neighboring pixels  
-- **Range weight** — similarity in pixel intensity  
+- **Spatial weight** - proximity of neighboring pixels  
+- **Range weight** - similarity in pixel intensity  
 
 **Key Parameters:**
-- `d = 5` — filter kernel size  
-- `sigma_s = 16` — spatial sigma  
-- `sigma_r = 12` — range sigma  
+- `d = 5` - filter kernel size  
+- `sigma_s = 16` - spatial sigma  
+- `sigma_r = 12` - range sigma  
 
 ---
 
