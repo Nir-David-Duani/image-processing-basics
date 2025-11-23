@@ -15,7 +15,7 @@ This repository currently includes three assignments:
 | [Assignment 2 – Morphological Operations & Connected Components](./assignment2/README.md) | Implementing dilation and erosion manually; detecting words in an image | Morphological filters, binary masks, connected components |
 | [Assignment 3 – Bilateral Filtering & Edge Detection](./assignment3/README.md) | Building a bilateral filter from scratch and comparing to OpenCV | Non-linear filtering, noise reduction, Canny edge detection |
 
-📌 *More assignments will be added soon, including geometric transformations, histogram analysis, and frequency-domain filtering.*
+📌 *More assignments will be added soon.*
 
 ---
 
