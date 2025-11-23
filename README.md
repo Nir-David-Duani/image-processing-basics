@@ -50,7 +50,7 @@ The goal of these projects is to:
 ## 📸 Example Results
 | Morphological Dilation | Bilateral Filtering | Edge Detection |
 |:----------------------:|:------------------:|:--------------:|
-| ![Dilation Example](assignment2/dilated_example.png) | ![Bilateral Example](assignment3/bilateral_example.png) | ![Canny Example](assignment3/canny_result.png) |
+| ![Dilation Example](assignment2/dilated_image_kernel(2,5).png) | ![Bilateral Example](assignment3/my_bilateral_filtered_image.png) | ![Canny Example](assignment3/Canny_my_bileteral_filtered_image.png) |
 
 ---
 
