@@ -16,7 +16,7 @@ Plots pyramid shapes using NumPy arrays and Matplotlib.
 
 | Pyramid Plot Example |
 |:--------------------:|
-| ![Pyramids](pyramids.png) |
+| ![Pyramids](pyramids_plot.png) |
 
 **Key Concepts:**  
 - Array concatenation and reshaping  
