@@ -11,9 +11,9 @@ This repository currently includes three assignments:
 
 | Assignment | Topic | Main Concepts |
 |-------------|--------|----------------|
-| [Assignment 1 – Pyramids Everywhere](./assignment1/README.md) | Intro to Python, NumPy, and basic OpenCV operations | String manipulation, array operations, image masking and overlay |
-| [Assignment 2 – Morphological Operations & Connected Components](./assignment2/README.md) | Implementing dilation and erosion manually; detecting words in an image | Morphological filters, binary masks, connected components |
-| [Assignment 3 – Bilateral Filtering & Edge Detection](./assignment3/README.md) | Building a bilateral filter from scratch and comparing to OpenCV | Non-linear filtering, noise reduction, Canny edge detection |
+| [Assignment 1](./assignment1/README.md) | Intro to Python, NumPy, and basic OpenCV operations | String manipulation, array operations, image masking and overlay |
+| [Assignment 2](./assignment2/README.md) | Implementing dilation and erosion manually; detecting words in an image | Morphological filters, binary masks, connected components |
+| [Assignment 3](./assignment3/README.md) | Building a bilateral filter from scratch and comparing to OpenCV | Non-linear filtering, noise reduction, Canny edge detection |
 
 📌 *More assignments will be added soon, including geometric transformations, histogram analysis, and frequency-domain filtering.*
 
