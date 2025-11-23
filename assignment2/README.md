@@ -1,56 +1,59 @@
-# Assignment 2 — Morphological Operations & Connected Components
+# Assignment 2 — Morphological Operations & Word Detection
 
-This assignment explores **basic morphology in image processing** using NumPy and OpenCV.  
-It includes two exercises: manually implementing dilation and erosion, and using morphological operations to detect words in a newspaper image.
+This assignment focuses on **morphological image processing** using NumPy and OpenCV.  
+It includes two main parts: implementing dilation and erosion from scratch, and detecting words in a newspaper image using morphological operators and connected components.
 
 ---
 
-## 🧩 Exercises
+## 🧩 1. Dilation and Erosion (NumPy + OpenCV)
 
-### 1. Implement Dilation and Erosion (NumPy)
-Created custom `my_dilate()` and `my_erode()` functions that simulate morphological operations by sliding a kernel over a binary image.
+Custom implementations of `dilate` and `erode` were written manually using convolution-like sliding window operations.  
+The results were compared with OpenCV’s built-in functions.
 
 **Key Concepts:**
-- Cross-correlation and neighborhood operations  
-- Image padding and kernel design  
 - Binary image manipulation  
+- Kernel-based filtering  
+- Cross-correlation logic  
+- Padding and border handling  
 
-**Example Output:**  
-A dilated square shape demonstrating the kernel effect.
-
----
-
-### 2. Find Words in a Newspaper (OpenCV)
-Used thresholding, dilation, and connected components to group text and detect separate words in a newspaper article.
-
-**Key Steps:**
-1. Convert the image to grayscale and apply a threshold.  
-2. Use a rectangular kernel for dilation to merge characters of each word.  
-3. Apply `cv2.connectedComponents()` to identify and draw bounding boxes.  
-
-**Key Concepts:**
-- Morphological operators (`cv2.dilate`, `cv2.erode`)  
-- Binary masks and thresholding  
-- Connected component analysis  
+**Examples:**
+| Kernel (2×5) | Dilation Result | Erosion Result |
+|:-------------:|:----------------:|:---------------:|
+| ![kernel](dilated_image_kernel(2,5).png) | ![dilate](my_dilate.png) | ![erode](my_erode.png) |
 
 ---
 
-## 🖼️ Results
+## 🗞️ 2. Word Detection in a Newspaper (Morphology + Connected Components)
 
-| Original | After Threshold | After Dilation |
-|:---------:|:----------------:|:----------------:|
-| ![original](news.jpg) | ![threshold](threshold_example.png) | ![dilated](dilated_example.png) |
+Using morphological operators to merge characters into words and detect regions of interest.
+
+**Steps:**
+1. Convert to grayscale  
+2. Apply thresholding  
+3. Dilate to merge characters of the same word  
+4. Detect connected components and draw rectangles  
+
+**Results:**
+| Original Image | Thresholded | Words Detected |
+|:---------------:|:-------------:|:---------------:|
+| ![news](news.jpg) | ![thresh](news_treshold.png) | ![words](detected_words.png) |
+
+**Title Extraction (Erosion + Dilation Only):**
+| Erosion | Dilation | Final Detected Title |
+|:--------:|:---------:|:--------------------:|
+| ![erosion](detected_title_erosion.png) | ![dilation](detected_title_dilation.png) | ![title](detected_title.png) |
 
 ---
 
 ## 🧠 What I Learned
-- How morphological filters affect binary images  
-- How to detect connected regions using OpenCV  
-- The relationship between image structure and kernel design
+- How morphological operations modify image structure  
+- How to implement filters manually with NumPy  
+- How connected component labeling works  
+- Practical image analysis workflow with OpenCV
 
 ---
 
-## 🧰 Technologies
+## 🧰 Tools Used
 - Python 3  
 - NumPy  
 - OpenCV  
