@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment 1 - Pyramids everywhere
 
 This assignment introduces basic Python, NumPy, Matplotlib, and OpenCV concepts.  
 It includes three small exercises:
