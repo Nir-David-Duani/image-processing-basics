@@ -43,6 +43,7 @@ Using morphological operators to merge characters into words and detect regions 
 |:--------:|:---------:|:--------------------:|
 | ![erosion](detected_title_erosion.png) | ![dilation](detected_title_dilation.png) | ![title](detected_title.png) |
 
+> **Note:** The result is not perfect, and that's mainly because the newspaper text contains areas with different fonts, and even some handwritten sections. This diversity makes it challenging to tune morphological operators and thresholding to perfectly detect all words.
 ---
 
 ## 🧠 What I Learned
