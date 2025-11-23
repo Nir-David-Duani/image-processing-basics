@@ -16,7 +16,7 @@ Plots pyramid shapes using NumPy arrays and Matplotlib.
 
 | Pyramid Plot Example |
 |:--------------------:|
-| ![Pyramids](pyramids_ex1.2.png) |
+| ![Pyramids](pyramids.png) |
 
 **Key Concepts:**  
 - Array concatenation and reshaping  
@@ -27,7 +27,7 @@ Combines two grayscale images — a forest and a pyramid — to create a composi
 
 | Forest | Pyramids | Combined |
 |:-------:|:---------:|:--------:|
-| ![forest](forest.jpg) | ![pyramids](pyramids.png) | ![result](pyramidsInForest_ex1.3.png) |
+| ![forest](forest.jpg) | ![pyramids](pyramids.png) | ![result](pyramidsInForest.png) |
 
 **Key Concepts:**  
 - Image masking and overlay  
