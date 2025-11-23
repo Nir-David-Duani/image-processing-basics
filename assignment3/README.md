@@ -1,4 +1,4 @@
-# Assignment 3 — Bilateral Filtering & Edge Detection
+# Assignment 3 - Bilateral Filtering & Edge Detection
 
 This assignment demonstrates the implementation of a **Bilateral Filter** from scratch and compares it to OpenCV’s built-in bilateral filter and a regular Gaussian blur.  
 Finally, the results are evaluated using **Canny edge detection** to analyze how each filtering method preserves edges.
