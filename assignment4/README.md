@@ -25,9 +25,9 @@ Develop an algorithm that:
 
 | Original | Fixed | RMSE Error Map |
 |:---------:|:------:|:---------------:|
-| ![original1](original_image1.png) | ![fixed1](fixed_image1.png) | ![error1](rmse_err_image1_before.png) |
-| ![original2](original_image2.png) | ![fixed2](fixed_image2.png) | ![error2](rmse_err_image2_before.png) |
-| ![original3](original_image3.png) | ![fixed3](fixed_image3.png) | ![error3](rmse_err_image3_before.png) |
+| ![original1](original_image1.png) | ![fixed1](fixed_image1.png) | ![error1](rmse_err_image1.png) |
+| ![original2](original_image2.png) | ![fixed2](fixed_image2.png) | ![error2](rmse_err_image2.png) |
+| ![original3](original_image3.png) | ![fixed3](fixed_image3.png) | ![error3](rmse_err_image3.png) |
 
 ---
 
