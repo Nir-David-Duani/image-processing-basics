@@ -55,7 +55,4 @@ Using morphological operators to merge characters into words and detect regions 
 ---
 
 ## 🧰 Tools Used
-- Python 3  
-- NumPy  
-- OpenCV  
-- Matplotlib
+Python 3 • NumPy • OpenCV • Matplotlib
