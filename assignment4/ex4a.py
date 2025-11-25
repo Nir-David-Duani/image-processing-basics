@@ -36,7 +36,8 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-
+import os
+print("Working directory:", os.getcwd())
 IMAGE_SHAPE = [768, 1366]
 
 
@@ -93,14 +94,15 @@ def fix_raw_im(b, vig_im):
     # TODO: build reconstructed calib map using b params from calibration step
     # use X,b (this is the LS part!!!)
     # one line
-    reconstructed_calib_im_column_vector = None
+    reconstructed_calib_im_column_vector = X @ b
     # reshape into 2d image
+    rec_calib_map = reconstructed_calib_im_column_vector.reshape(IMAGE_SHAPE[0], IMAGE_SHAPE[1])
     # build 3 copies of the 2d result and concat along the third dim, in order to divide with RGB images
-    pass
+    rec_calib_map_3 = np.stack([rec_calib_map]*3, axis=2)
 
     # TODO: divide the reconstructed calib image with the input image to get the fixed result
     # one line
-    res = None
+    res = vig_im / rec_calib_map_3
 
     # return the final result + rec_calib_map for debug and testing purposes.
     return res, rec_calib_map
@@ -113,11 +115,11 @@ def calib_testing(calib_map, rec_calib_map):
 
     # TODO:what is the RMSE of the reconstruction?
     # one line
-    rmse = None
+    rmse = np.sqrt(np.mean((calib_map - rec_calib_map)**2))
 
     # TODO: print L1 map of reconstruction
     # one line
-    abs_error_map = None
+    abs_error_map = abs(calib_map - rec_calib_map)
 
     plt.figure()
     plt.imshow(abs_error_map)
@@ -134,6 +136,8 @@ if __name__ == "__main__":
 
         vig_im = cv2.imread("vignette_im" + str(i + 1) + ".jpg")
         vig_im = cv2.cvtColor(vig_im, cv2.COLOR_BGR2RGB)
+        # normalizatiom vig_im
+        #vig_im = vig_im.astype(float) / 255
 
         # ===== happens in the factory per lens setup
         b = get_calib_coeffs(calib_map)
