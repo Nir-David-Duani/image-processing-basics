@@ -1,76 +1,51 @@
 # Assignment 4 — Vignetting Correction
 
-This project focuses on detecting and correcting **vignetting**, a common issue in photography where image brightness decreases toward the edges.  
-The algorithm simulates a calibration process similar to what might happen in a real camera system.
+This assignment focuses on detecting and correcting **vignetting**, a common optical issue where brightness decreases toward the edges of an image.  
+The goal is to simulate how a camera system can automatically correct for this artifact using a lightweight mathematical model.
+
+## Objective
+Develop an algorithm that:
+1. Learns the vignetting pattern from a **single calibration image** (white wall).
+2. Stores compact calibration parameters (β vector).
+3. Uses them to correct any new image taken with the same lens.
 
 ---
 
-## 🎯 Objective
-
-Develop a system that automatically corrects vignetting artifacts using a single calibration image per lens configuration.
-
-### The challenge
-Due to limited hardware memory, we cannot store full calibration maps for each lens setup.  
-Instead, the algorithm must compress the calibration data into a compact mathematical model.
-
----
-
-## 🧠 Process Overview
-
-1. **Calibration Phase:**  
-   The user captures an image of a white wall (`calib_im.jpg`) for a given lens.  
-   The system computes a set of coefficients (`β` vector) describing the vignetting model.
-
-2. **Correction Phase:**  
-   When the user takes new photos with the same lens, the algorithm reconstructs the calibration map from the coefficients  
-   and divides the new image by it to fix brightness inconsistencies.
-
----
-
-## ⚙️ Implementation Details
+## Implementation Overview
 
 ### Core Functions
-- `get_index_matrix()`  
-  Generates the feature matrix `X` based on image pixel coordinates (`x`, `y`, `x²`, `y²`, `xy`),  
-  used to model radial intensity falloff.
-
-- `get_calib_coeffs(calib_map)`  
-  Uses **least squares regression** to estimate the calibration parameters (`β`).
-
-- `fix_raw_im(b, vig_im)`  
-  Reconstructs the calibration map and applies correction by dividing the raw image by the model output.
-
-- `calib_testing(calib_map, rec_calib_map)`  
-  Evaluates the reconstruction using **RMSE** and displays the **L1 error map**.
+- **`get_index_matrix()`** — builds the feature matrix `X` based on pixel coordinates and polynomial terms (`x`, `y`, `x²`, `y²`, `xy`).
+- **`get_calib_coeffs(calib_map)`** — computes calibration coefficients using **least squares regression**.
+- **`fix_raw_im(b, vig_im)`** — reconstructs the calibration map and applies correction by dividing the raw image by the model’s prediction.
+- **`calib_testing()`** — evaluates reconstruction accuracy with RMSE and an L1 error map.
 
 ---
 
-## 🖼️ Example Results
+## Example Results
 
-| Original Image | Fixed Image | Calibration Error Map |
-|:----------------:|:-------------:|:----------------------:|
-| ![original](vignette_im1.jpg) | ![fixed](fixed_image_example.png) | ![error](error_map_example.png) |
-
-*(Images illustrate correction of peripheral darkening caused by vignetting.)*
-
----
-
-## 📚 Key Concepts
-- Vignetting correction using parametric modeling  
-- Least Squares fitting  
-- Radial intensity modeling  
-- Camera calibration  
-- OpenCV & NumPy matrix operations
+| Original | Fixed | RMSE Error Map |
+|:---------:|:------:|:---------------:|
+| ![original1](original_image1.png) | ![fixed1](fixed_image1.png) | ![error1](rmse_err_image1.png) |
+| ![original2](original_image2.png) | ![fixed2](fixed_image2.png) | ![error2](rmse_err_image2.png) |
+| ![original3](original_image3.png) | ![fixed3](fixed_image3.png) | ![error3](rmse_err_image3.png) |
 
 ---
 
-## 🧰 Tools Used
+## Key Concepts
+- Vignetting correction via parametric modeling  
+- Least squares estimation (`X @ β = y`)  
+- Polynomial basis for radial brightness modeling  
+- Image normalization and reconstruction using OpenCV and NumPy  
+
+---
+
+## Tools Used
 Python 3 • NumPy • OpenCV • Matplotlib
 
 ---
 
-## 🧩 What I Learned
-- How to model optical artifacts mathematically  
-- How calibration and correction processes are implemented in camera hardware  
-- Applying linear regression to image-based problems  
-- Visual evaluation of error maps and reconstruction accuracy
+## What I Learned
+- How to mathematically model optical distortion in images  
+- Using least-squares regression for calibration problems  
+- How cameras can pre-compute correction maps for different lenses  
+- Practical debugging of image correction algorithms and visualization of error maps
