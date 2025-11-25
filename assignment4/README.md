@@ -1,54 +1,43 @@
 # Assignment 4 — Vignetting Correction
 
 This assignment focuses on detecting and correcting **vignetting**, a common optical issue where brightness decreases toward the edges of an image.  
-The goal is to simulate how a camera system can automatically correct for this artifact using a lightweight mathematical model.
+The goal is to simulate how a camera system can automatically correct for this artifact using a **regression-based mathematical model**.
 
 ---
 
 ## Objective
 Develop an algorithm that:
-1. Learns the vignetting pattern from a **single calibration image** (white wall).
-2. Stores compact calibration parameters (β vector).
-3. Uses them to correct any new image taken with the same lens.
+1. Learns the vignetting pattern from a **single calibration image** (white wall).  
+2. Uses **Least Squares Regression** to estimate the parameters that describe the light falloff.  
+3. Applies the learned model to correct new images taken with the same lens.
 
 ---
 
-## Mathematical Background
+## How It Works
 
-Vignetting can be modeled as a **spatially varying intensity function**:  
-\[
-I(x, y) = I_0(x, y) \cdot V(x, y)
-\]
-where \(I(x, y)\) is the observed pixel intensity, \(I_0(x, y)\) is the true (ideal) image, and \(V(x, y)\) is the vignetting function (values ≤ 1) describing the light falloff.
+Vignetting causes the corners of an image to appear darker than the center.  
+To fix this, we capture a calibration photo of a **uniform white wall** and analyze how the brightness changes across the frame.  
 
-Since \(V(x, y)\) tends to vary smoothly across the frame, it can be approximated using a **polynomial model**:
-\[
-V(x, y) = \beta_0 + \beta_1 x + \beta_2 y + \beta_3 x^2 + \beta_4 y^2 + \beta_5 xy
-\]
+We assume that brightness varies smoothly with position, and therefore can be approximated with a **polynomial regression model** that depends on pixel coordinates (x, y).  
+Using **Least Squares Regression**, we find the model parameters (β) that best fit the brightness distribution.  
+These parameters are then used to reconstruct a calibration map that compensates for uneven illumination.  
 
-Given a **calibration image** of a uniform surface (white wall), we can estimate β by solving a **least-squares regression** problem:
-\[
-X\beta = y
-\]
-where:
-- \(X\) is a matrix built from pixel coordinates and polynomial terms  
-- \(y\) is the flattened grayscale calibration image  
-- \(\beta = (X^T X)^{-1} X^T y\)
+When applied to a new image, the algorithm divides each pixel by its corresponding calibration value, resulting in a corrected, evenly illuminated image.
 
-Once β is estimated, we can reconstruct \(V(x, y)\) for any image and correct it using:
-\[
-I_{\text{corrected}}(x, y) = \frac{I(x, y)}{V(x, y)}
-\]
+In short:
+- Measure the light falloff using a calibration image.  
+- Model the brightness variation with **regression**.  
+- Apply the model to correct new images efficiently and automatically.
 
 ---
 
 ## Implementation Overview
 
 ### Core Functions
-- **`get_index_matrix()`** — builds the feature matrix `X` based on pixel coordinates and polynomial terms (`x`, `y`, `x²`, `y²`, `xy`).
-- **`get_calib_coeffs(calib_map)`** — computes calibration coefficients using **least squares regression**.
-- **`fix_raw_im(b, vig_im)`** — reconstructs the calibration map and applies correction by dividing the raw image by the model’s prediction.
-- **`calib_testing()`** — evaluates reconstruction accuracy with RMSE and an L1 error map.
+- **`get_index_matrix()`** — builds a coordinate-based data matrix for the regression model.  
+- **`get_calib_coeffs(calib_map)`** — performs **Least Squares Regression** to calculate model coefficients (β).  
+- **`fix_raw_im(b, vig_im)`** — reconstructs the calibration map using the regression output and corrects the image.  
+- **`calib_testing()`** — evaluates reconstruction accuracy for verification and debugging.
 
 ---
 
@@ -63,20 +52,20 @@ I_{\text{corrected}}(x, y) = \frac{I(x, y)}{V(x, y)}
 ---
 
 ## Key Concepts
-- Vignetting correction via **parametric polynomial modeling**  
-- **Least squares estimation** of calibration coefficients (`X @ β = y`)  
-- **Radial brightness modeling** using low-order polynomial terms  
-- Image normalization and correction using **OpenCV** and **NumPy**
+- Regression-based modeling for optical distortions  
+- Polynomial approximation of brightness variation  
+- Least Squares estimation (`X @ β = y`)  
+- Efficient calibration for camera systems using compact parameter storage  
 
 ---
 
 ## Tools Used
-Python 3 • NumPy • OpenCV • Matplotlib
+Python 3 • NumPy • OpenCV • Matplotlib  
 
 ---
 
 ## What I Learned
-- How to model and correct optical distortions mathematically  
-- Implementing regression-based calibration in image processing  
-- Understanding how cameras store lens-specific calibration data  
-- Evaluating correction accuracy both visually and numerically
+- How to use **regression techniques** to model and correct real-world optical artifacts  
+- How to implement and apply **Least Squares Regression** in an image-processing context  
+- How calibration models can replace full-size images and save memory  
+- How to visualize and verify the effect of regression-based correction
