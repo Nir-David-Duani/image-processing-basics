@@ -137,7 +137,7 @@ if __name__ == "__main__":
         vig_im = cv2.imread("vignette_im" + str(i + 1) + ".jpg")
         vig_im = cv2.cvtColor(vig_im, cv2.COLOR_BGR2RGB)
         # normalizatiom vig_im
-        #vig_im = vig_im.astype(float) / 255
+        vig_im = vig_im.astype(float) / 255
 
         # ===== happens in the factory per lens setup
         b = get_calib_coeffs(calib_map)
