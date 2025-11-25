@@ -72,14 +72,14 @@ def get_calib_coeffs(calib_map):
 
     # TODO: transform calib_map to column vector for least-squares
     # one line
-    y = None
+    y = calib_map.reshape(-1, 1)
 
     # build X
     X = get_index_matrix()
 
     # TODO: use least-squares to find the beta params for later use.
     # one line
-    b = None
+    b = np.linalg.lstsq(X, y, rcond=None)[0]
 
     return b
 
