@@ -55,4 +55,14 @@ These projects aim to:
 | Task | Input | Output |
 |:-----|:--------|:-------|
 | **Word Detection (Connected Components)** | ![Threshold](assignment2/news_treshold.png) | ![Detected Words](assignment2/find_words_result.png) |
-| **Morphological Dilation** | ![Before](assignment2/original_image.png) | ![After](assignment2/dilated_i_)_)
+| **Morphological Dilation** | ![Before](assignment2/original_image.png) | ![After](assignment2/dilated_image_kernel(2,5).png) |
+| **Bilateral Filtering** | ![Before](assignment3/original_noisy_image_grey_scale.png) | ![After](assignment3/my_bilateral_filtered_image.png) |
+| **Edge Detection (Canny)** | ![Before](assignment3/my_bilateral_filtered_image.png) | ![After](assignment3/Canny_my_bileteral_filtered_image.png) |
+| **Vignetting Correction** | ![Before](assignment4/original_image1.png) | ![After](assignment4/fixed_image1.png) |
+
+---
+
+## 👩‍💻 Author
+Created by **Nir David Duani**  
+Developed as part of the **Honors Program in Computer Science at Reichman University**,  
+focusing on hands-on algorithmic understanding and mathematical modeling in image processing.
