@@ -1,21 +1,22 @@
 # 🧠 Image Processing Projects
 
-A collection of Python-based projects exploring the mathematical and algorithmic foundations of **image processing and computer vision**.  
-Each assignment focuses on implementing core techniques *from scratch*, using **NumPy**, **OpenCV**, and **Matplotlib** - emphasizing understanding over built-in functions.
+A collection of Python-based projects exploring the **mathematical and algorithmic foundations** of image processing and computer vision.  
+Each assignment implements core techniques *from scratch* using **NumPy**, **OpenCV**, and **Matplotlib** — emphasizing **understanding the math behind the algorithms** rather than relying on built-in functions.
 
 ---
 
 ## 📚 Overview
 
-This repository currently includes three assignments:
+This repository includes several assignments demonstrating different aspects of digital image analysis:
 
 | Assignment | Topic | Main Concepts |
 |-------------|--------|----------------|
-| [Assignment 1 – Pyramids Everywhere](./assignment1/README.md) | Intro to Python, NumPy, and basic OpenCV operations | String manipulation, array operations, image masking and overlay |
+| [Assignment 1 – Pyramids Everywhere](./assignment1/README.md) | Intro to Python, NumPy, and OpenCV basics | String manipulation, array operations, image masking and overlay |
 | [Assignment 2 – Morphological Operations & Connected Components](./assignment2/README.md) | Implementing dilation and erosion manually; detecting words in an image | Morphological filters, binary masks, connected components |
 | [Assignment 3 – Bilateral Filtering & Edge Detection](./assignment3/README.md) | Building a bilateral filter from scratch and comparing to OpenCV | Non-linear filtering, noise reduction, Canny edge detection |
+| [Assignment 4 – Vignetting Correction via Regression](./assignment4/README.md) | Correcting brightness falloff (vignetting) using a mathematical model | Polynomial modeling, **Least Squares Regression**, camera calibration |
 
-📌 *More assignments will be added soon.*
+📌 *More projects will be added soon.*
 
 ---
 
@@ -24,8 +25,9 @@ This repository currently includes three assignments:
 - Convolution and kernel-based filtering  
 - Morphological operators (dilate, erode)  
 - Binary thresholding and connected components  
-- Bilateral filtering and edge detection  
-- Visualization with Matplotlib  
+- Bilateral filtering and noise reduction  
+- Regression-based image correction (vignetting)  
+- Visualization and debugging with Matplotlib  
 
 ---
 
@@ -39,21 +41,26 @@ This repository currently includes three assignments:
 ---
 
 ## 🎯 Learning Objectives
-The goal of these projects is to:
-- Understand the **mathematics behind image processing**  
-- Implement algorithms **manually** before using OpenCV’s high-level functions  
-- Develop debugging and visualization skills  
-- Strengthen programming fundamentals through practical, visual examples  
+These projects aim to:
+- Understand the **mathematics and regression models** behind image processing  
+- Implement algorithms manually before using OpenCV’s built-in methods  
+- Strengthen algorithmic thinking and visualization skills  
+- Explore how computer vision systems process and enhance real-world images  
 
 ---
 
 ## 📸 Example Results
-| Morphological Dilation | Bilateral Filtering | Edge Detection |
-|:----------------------:|:------------------:|:--------------:|
-| ![Dilation Example](assignment2/dilated_image_kernel(2,5).png) | ![Bilateral Example](assignment3/my_bilateral_filtered_image.png) | ![Canny Example](assignment3/Canny_my_bileteral_filtered_image.png) |
+
+| Task | Before | After |
+|:-----|:--------|:-------|
+| **Morphological Dilation** | ![Before](assignment2/original_image.png) | ![After](assignment2/dilated_image_kernel(2,5).png) |
+| **Bilateral Filtering** | ![Before](assignment3/original_noisy_image_grey_scale.png) | ![After](assignment3/my_bilateral_filtered_image.png) |
+| **Vignetting Correction** | ![Before](assignment4/original_image1.png) | ![After](assignment4/fixed_image1.png) |
 
 ---
 
 ## 👩‍💻 Author
-Created by Nir David Duani  
-Developed as part of an introductory course in image processing, focusing on hands-on algorithmic understanding.
+Created by **Nir David Duani**  
+Developed as part of the **Honors Program in Computer Science at Reichman University**,  
+focusing on hands-on algorithmic understanding and mathematical modeling in image processing.
+
