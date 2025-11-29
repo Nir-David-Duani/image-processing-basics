@@ -22,11 +22,35 @@ plt.show()
 
 # Find edges of an image using Canny
 # TODO: Canny edge detection of image
-mag_im = []
+
+# Test different threshold combinations
+threshold_options = [
+    (20,60),
+    (30, 90),
+    (50, 150),
+    (100, 200),
+    (50, 100),
+    (75, 225)
+]
+# Display all options together
+plt.figure(figsize=(15, 10))
+for idx, (th1, th2) in enumerate(threshold_options, 1):
+    mag_im_test = cv2.Canny(im, th1, th2)
+    
+    plt.subplot(2, 3, idx)
+    plt.imshow(mag_im_test, cmap='gray')
+    plt.title(f"threshold1={th1}, threshold2={th2}")
+    plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+
+
+mag_im = cv2.Canny(im, 20, 60, apertureSize=3, L2gradient=True)
 
 plt.figure(figsize=figsize)
-plt.imshow(mag_im)
-plt.title("edge image")
+plt.imshow(mag_im, cmap='gray')
+plt.title(f"Selected edge image - threshold1=20, threshold2=60")
 plt.show()
 
 # Initialize accumulation matrix
