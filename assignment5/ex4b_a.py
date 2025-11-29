@@ -92,15 +92,15 @@ for yx in edge_inds:
     for a_ind, a0 in enumerate(a):
         for b_ind, b0 in enumerate(b):
             # TODO: find best corresponding r0 (1 line)
-
+            r0 = int(np.sqrt((x - a0)**2 + (y - b0)**2))
             # something to make it faster
-            if r0 > rmax:
+            if r0 < rmin or r0 > rmax:
                 continue
 
             # TODO: find best index in r dimension (1 line)
-
+            r_ind = r0 - rmin
             # TODO: update accumulation matrix (1 line)
-
+            acc_mat[b_ind, a_ind, r_ind] += 1
 plt.figure(figsize=figsize)
 plt.imshow(np.max(acc_mat, axis=2), extent=[b.min(), b.max(), a.max(), a.min()], aspect="auto")
 plt.xlabel("a")
