@@ -63,10 +63,18 @@ plt.show()
 # Another hint- when building r vector- use this:
 rmax = 25
 # ~~~FILL REST HERE~~~
+rmin = 5 
+r_step = 1
+r = np.arange(rmin, rmax + 1, r_step)
 
+a_step = 1
+a = np.arange(0, im.shape[1], a_step)
+
+b_step = 1
+b = np.arange(0, im.shape[0], b_step) 
 # TODO: init accumulation matrix (one line)
 # watch out of the order- which comes first? rows or cols?
-acc_mat = []
+acc_mat = np.zeros((len(b), len(a), len(r)), dtype=np.uint32)
 
 # Fill accumulation matrix
 # get indices of edges
