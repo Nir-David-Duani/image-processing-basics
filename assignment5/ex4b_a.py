@@ -145,10 +145,10 @@ for i in range(edge_inds.shape[0]):
         if ((r0 - r1) * r_step) ** 2 + ((a0 - a1) * a_step) ** 2 + ((b0 - b1) * b_step) ** 2 < min_dist**2:
             if acc_mat[b0, a0, r0] >= acc_mat[b1, a1, r1]:
                 # TODO: one line fill here
-                pass
+                acc_mat_th_dist[b1, a1, r1] = False
             else:
                 # TODO: one line fill here
-                pass
+                acc_mat_th_dist[b0, a0, r0] = False
 plt.figure(figsize=figsize)
 plt.imshow(
     np.sum(acc_mat_th_dist, axis=2),
