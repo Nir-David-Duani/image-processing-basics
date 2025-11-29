@@ -185,6 +185,8 @@ res = im3.copy()
 # https://docs.opencv.org/3.4/d4/d70/tutorial_hough_circle.html
 circles = cv2.HoughCircles(im, cv2.HOUGH_GRADIENT, 1, 10, param1=100, param2=8, minRadius=5, maxRadius=30)
 
+circles = np.uint16(np.around(circles))
+
 for xyr in circles[0, :]:
     # draw the outer circle
     res = cv2.circle(res, (xyr[0], xyr[1]), xyr[2], (0, 255, 0), 1)
