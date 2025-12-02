@@ -119,22 +119,22 @@ These experiments highlight how sensitive `HoughCircles` is to:
 - accumulator threshold
 - radius range
 
-### ❌ Too many false detections
+### ❌ 
 ![bad1](coins_detect_bad.png)
 
-### ❌ Small coins missed
+### ❌ 
 ![bad2](coins_detect_bad1.png)
 
-### ❌ Wrong radius range
+### ❌ 
 ![bad3](coins_detect_bad2.png)
 
-### ❌ Over-detection due to low thresholds
+### ❌ 
 ![bad4](coins_detect_bad3.png)
 
-### ❌ Under-detection due to high thresholds
+### ❌ 
 ![bad5](coins_detect_bad4.png)
 
-### ❌ dp too small → noisy accumulator
+### ❌ 
 ![bad6](coins_detect_bad5.png)
 
 ---
