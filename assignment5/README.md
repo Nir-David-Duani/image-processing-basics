@@ -9,7 +9,7 @@ The goal is to understand how circle detection works mathematically and how it b
 
 Develop two circle-detection systems:
 
-1. **EX4b.a — Manual Circle Hough Transform**  
+1. **EX5a — Manual Circle Hough Transform**  
    Implement the full pipeline from scratch:
    - Edge detection  
    - Accumulator construction  
@@ -18,7 +18,7 @@ Develop two circle-detection systems:
    - Minimum-distance filtering  
    - Final circle reconstruction  
 
-2. **EX4b.b — Coin Detection with HoughCircles**  
+2. **EX5b — Coin Detection with HoughCircles**  
    Use OpenCV’s built-in circle detector to locate and classify real U.S. coins based on pixel radius.
 
 ---
@@ -46,7 +46,7 @@ This part demonstrates:
 
 ---
 
-# 🎯 EX4b.a — Manual Circle Hough Transform
+# 🎯 EX5a — Manual Circle Hough Transform
 
 ## 1. Original Image
 ![original](original_image.png)
@@ -93,7 +93,7 @@ This part demonstrates:
 
 ---
 
-# 🟢 EX4b.b — Coin Detection with HoughCircles
+# 🟢 EX5b — Coin Detection with HoughCircles
 
 The second part applies OpenCV’s built-in circle detector to a real image of U.S. coins.
 
