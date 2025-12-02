@@ -69,7 +69,7 @@ This part demonstrates:
 ---
 
 ## 5. Accumulator After Thresholding
-![acc th](accumulation_matrix_TH(Heat map).png)
+![acc th](accumulation_matrix_TH(Heat_map).png)
 
 ---
 
